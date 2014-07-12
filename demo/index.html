@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery Ahora</title>
+		<script src="jquery-2.1.0.min.js"></script>
+		<script src="../src/jquery.ahora.js"></script>
+		<link rel="stylesheet" type="text/css" href="../css/jquery.ahora.css">
+		<style type="text/css" src=""></style>
+	</head>
+	<body>
+		<div id="element">
+			<label>Botón: <input type="button" value="foo" /></label><br/>
+			<label>Hora: <input type="text" value="texto"/></label><br/>
+			<label>Casilla: <input type="checkbox" value="casilla" checked/></label><br/>
+		</div>
+		<script>
+			$(function() {
+				$("input").ahora({
+					ahora: "18:55"
+				});
+			});
+		</script>
+	</body>
+</html>

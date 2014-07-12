@@ -1,0 +1,17 @@
+
+.jquery-ahora-input{
+	vertical-align: middle;
+}
+.jquery-ahora-wrapper{
+	display:inline-block;
+}
+
+.jquery-ahora-activar{
+	width: 16px;
+	height: 16px;
+	margin: 0px;
+	padding: 0px;
+	border: medium none; 
+	vertical-align: middle;
+}
+
