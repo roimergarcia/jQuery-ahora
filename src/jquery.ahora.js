@@ -2,16 +2,7 @@
 // scripts and/or other plugins which may not be closed properly.
 ;(function ( $, window, document, undefined ) {
 
-		// undefined is used here as the undefined global variable in ECMAScript 3 is
-		// mutable (ie. it can be changed by someone else). undefined isn't really being
-		// passed in so we can ensure the value of it is truly undefined. In ES5, undefined
-		// can no longer be modified.
-
-		// window and document are passed through as local variable rather than global
-		// as this (slightly) quickens the resolution process and can be more efficiently
-		// minified (especially when both are regularly referenced in your plugin).
-
-		// Create the defaults once
+		// Valores y opciones por defecto
 		var pluginName = "ahora";
 		var defaults = {
 				ahora: "00:00"
@@ -20,10 +11,7 @@
 		// The actual plugin constructor
 		function Plugin ( element, options ) {
 				this.element = element;
-				// jQuery has an extend method which merges the contents of two or
-				// more objects, storing the result in the first object. The first object
-				// is generally empty as we don't want to alter the default options for
-				// future instances of the plugin
+				// Aplica las opciones, usando la configuracion por defecto donde sea necesario
 				this.settings = $.extend( {}, defaults, options );
 				this._defaults = defaults;
 				this._name = pluginName;
@@ -35,16 +23,22 @@
 				init: function () {
 						// Inicialización
 						var jqThis = $(this.element);
+						var jqBoton = $('<input type="button" class="jquery-ahora-activar" />');
+						var jqAhora = this;
+
 						jqThis.addClass('jquery-ahora-input')
 							.wrap($('<span class="jquery-ahora-wrapper"></span>'))
-							.after($('<input type="button" class="jquery-ahora-activar" />'))
+							.after(jqBoton)
 							.val(this.settings.ahora);
-						
-						//para probar
-						this.probar();
+						jqBoton.on('click.ahora', function(e){
+							jqAhora.abrirSelector();
+						});
 				},
-				probar: function () {
-						console.log('probar');
+				abrirSelector: function () {
+						console.log('¡Selector abierto!');
+				},
+				cerrarSelector: function () {
+						console.log('¡Selector cerrado!');
 				}
 		});
 
